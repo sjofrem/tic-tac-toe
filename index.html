@@ -6,9 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+    </header>
+    <main>
+        <div id="simbols">
+            <button id="x" class="active">X</button>
+            <button id="o" class="inactive">O</button>
+        </div>
+        <div id="displayResult">
+            <p id="result">X Wins</p>
+        </div>
+        <div id="gameBoard">
+            <button class="field" data-index="0"></button>
+            <button class="field" data-index="1"></button>
+            <button class="field" data-index="2"></button>
+            <button class="field" data-index="3"></button>
+            <button class="field" data-index="4"></button>
+            <button class="field" data-index="5"></button>
+            <button class="field" data-index="6"></button>
+            <button class="field" data-index="7"></button>
+            <button class="field" data-index="8"></button>
+        </div>
+        <div id="gameOptions">
+            <select name="gameMode" id="gameMode">
+                <option value="">VS Easy</option>
+                <option value="">VS Medium</option>
+                <option value="">VS Hard</option>
+                <option value="">Vs Player</option>
+            </select>
+            <button id="resetBtn">Reset</button>
+        </div>
+    </main>
+    <footer id="footer">
+        <p id="footerText">sjofrem © 2021</p>
+        <a href="https://github.com/sjofrem"> 
+            <img id= "github" src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+        </a>
+    </footer>
 </body>
 </html>

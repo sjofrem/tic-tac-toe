@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #eceae4;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+body{
+    height: 100%;
+}
+/* Header section */
+header{
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    
+}
+h1 {
+    color: #2b2928;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+/* Main section */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#gameOptions{
+    display: flex;
+    width: 455px;
+    justify-content: space-around;
+}
+select{
+    box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 10px;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    width: 140px;
+    border: none;
+    background-color: #4941334d;
+    border-radius: 4px;
+    transition: 0.25s;
+}
+
+
+#simbols{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+button{
+    border: none;
+}
+#x,#o,#resetBtn{
+    width: 100px;
+    height: 40px;
+    font-size: 1.1rem;
+    background-color: #4941334d;
+    box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 10px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: 0.25s;
+    transition: border-bottom linear .01s;
+}
+#resetBtn{
+    width: 140px;
+}
+#x:hover,#o:hover,#resetBtn:hover,select:hover{
+    background-color: #776c594d;
+}
+#x:active,#o:active,#resetBtn:active,select:active{
+    background-color: #9487704d;
+}
+.active{
+    border-bottom: 3px solid #ddad80;
+}
+.inactive{
+    border-bottom: 3px solid #ddad8000;
+}
+
+#gameBoard{
+    display: grid;
+    width: 450px;
+    height: 450px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid #2b2928;
+    border-radius: 4px;
+    margin-bottom: 2.5rem;
+}
+.field{
+    background-color: #f2f1ef;
+    border: 1px solid #2b2928;
+    font-size: 4rem;
+}
+.field:hover{
+    background-color: #f3eee5;
+}
+.field:active{
+    background-color: #f1eade;
+}
+
+/*Footer section*/
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 1rem;
+    width: 100%;
+    font-size: 16px;
+}
+#github {
+    height: 20px;
+    width: auto;
+    transition: 0.25s;
+}
+#github:hover {
+    transform: scale(1.1);
+}
