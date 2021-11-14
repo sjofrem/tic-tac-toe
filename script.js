@@ -3,7 +3,10 @@ const gameBoard = (() => {
 
     const getField = (index) => board[index];
 
-    const setField = (index, player) => board[index]=player
+    const getBoard = () => board;
+
+    const setField = (index, player) => board[index]=player;
+
 
     const clear = () => {
         for (let i = 0; i < board.length; i++) {
@@ -13,6 +16,7 @@ const gameBoard = (() => {
 
     return {
         getField,
+        getBoard,
         setField,
         clear
     };
@@ -57,7 +61,7 @@ const gameController = (() => {
     });
 
     const gameRound = (index) => {
-        if(!invalidField.includes(index)){
+        if(!gameOver && !invalidField.includes(index)){
             if(round%2 ==0){
                 gameBoard.setField(index,p2.getIcon());
                 turnSignal(p2.getIcon());
@@ -68,6 +72,7 @@ const gameController = (() => {
             }
             invalidField.push(index);
             round++;
+            checkWinner();
         }
     }
     const turnSignal = (Icon) => {
@@ -84,15 +89,58 @@ const gameController = (() => {
             oIcon.classList.add('inactive');  
         }
     }
+
+    const checkWinner = () =>{
+        let roundWon = false;
+        let board = gameBoard.getBoard();
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+        for (let i = 0; i <= 7; i++) {
+            const winCondition = winningConditions[i];
+            let a = board[winCondition[0]];
+            let b = board[winCondition[1]];
+            let c = board[winCondition[2]];
+            if (a === '' || b === '' || c === '') {
+                continue;
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break
+            }
+        }
+    
+        if (roundWon) {
+            gameOver = true;
+        }
+    
+        let roundDraw = !board.includes("");
+        if (roundDraw) {
+            gameOver = true;
+        }
+
+
+    }
     const reset = () => {
         round = 1;
         invalidField = [];
+        gameOver = false;
+        p1.changeIcon('X');
+        p2.changeIcon('O');
         turnSignal(p2.getIcon());
     }
 
     return{
         gameRound,
         turnSignal,
+        checkWinner,
         reset
     }
 
