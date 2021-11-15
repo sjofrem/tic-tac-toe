@@ -43,6 +43,7 @@ main{
     display: flex;
     width: 455px;
     justify-content: space-around;
+    margin-bottom: 100px;
 }
 select{
     box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 10px;
@@ -92,6 +93,13 @@ button{
     border-bottom: 3px solid #ddad8000;
 }
 
+#result{
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 30px;
+}
+
 #gameBoard{
     display: grid;
     width: 450px;
@@ -117,7 +125,6 @@ button{
 
 /*Footer section*/
 #footer {
-    position: absolute;
     bottom: 0;
     left: 0;
     display: flex;

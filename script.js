@@ -44,6 +44,7 @@ const gameController = (() => {
 
     const xIcon = document.getElementById('x');
     const oIcon = document.getElementById('o');
+    const resultDisplay = document.getElementById('result');
 
     xIcon.addEventListener('click', (e) => {
         if(round == 1 && p1.getIcon() == 'O'){
@@ -61,18 +62,21 @@ const gameController = (() => {
     });
 
     const gameRound = (index) => {
+        let currentIcon = '';
         if(!gameOver && !invalidField.includes(index)){
             if(round%2 ==0){
                 gameBoard.setField(index,p2.getIcon());
                 turnSignal(p2.getIcon());
+                currentIcon = p2.getIcon();
             }
             else{
                 gameBoard.setField(index,p1.getIcon());
                 turnSignal(p1.getIcon());
+                currentIcon = p1.getIcon();
             }
             invalidField.push(index);
             round++;
-            checkWinner();
+            checkWinner(currentIcon);
         }
     }
     const turnSignal = (Icon) => {
@@ -90,7 +94,7 @@ const gameController = (() => {
         }
     }
 
-    const checkWinner = () =>{
+    const checkWinner = (currentIcon) =>{
         let roundWon = false;
         let board = gameBoard.getBoard();
         const winningConditions = [
@@ -119,11 +123,13 @@ const gameController = (() => {
     
         if (roundWon) {
             gameOver = true;
+            resultDisplay.innerText = `Player ${currentIcon} wins!`;
         }
     
         let roundDraw = !board.includes("");
         if (roundDraw) {
             gameOver = true;
+            resultDisplay.innerText = `It's a draw!`;
         }
 
 
@@ -135,6 +141,7 @@ const gameController = (() => {
         p1.changeIcon('X');
         p2.changeIcon('O');
         turnSignal(p2.getIcon());
+        resultDisplay.innerText = ` `;
     }
 
     return{
