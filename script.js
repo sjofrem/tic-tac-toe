@@ -46,21 +46,6 @@ const gameController = (() => {
     const oIcon = document.getElementById('o');
     const resultDisplay = document.getElementById('result');
 
-    xIcon.addEventListener('click', (e) => {
-        if(round == 1 && p1.getIcon() == 'O'){
-            turnSignal(p1.getIcon());
-            p1.changeIcon('X');
-            p2.changeIcon('O');
-        }
-    });
-    oIcon.addEventListener('click', (e) => {
-        if(round == 1 && p1.getIcon() == 'X'){
-            turnSignal(p1.getIcon());
-            p1.changeIcon('O');
-            p2.changeIcon('X');
-        }
-    });
-
     const gameRound = (index) => {
         let currentIcon = '';
         if(!gameOver && !invalidField.includes(index)){
@@ -127,7 +112,7 @@ const gameController = (() => {
         }
     
         let roundDraw = !board.includes("");
-        if (roundDraw) {
+        if (roundDraw && !roundWon) {
             gameOver = true;
             resultDisplay.innerText = `It's a draw!`;
         }

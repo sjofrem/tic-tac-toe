@@ -42,18 +42,8 @@ main{
 #gameOptions{
     display: flex;
     width: 455px;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 100px;
-}
-select{
-    box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 10px;
-    font-size: 1rem;
-    padding: 0.4rem 1rem;
-    width: 140px;
-    border: none;
-    background-color: #4941334d;
-    border-radius: 4px;
-    transition: 0.25s;
 }
 
 
@@ -80,10 +70,10 @@ button{
 #resetBtn{
     width: 140px;
 }
-#x:hover,#o:hover,#resetBtn:hover,select:hover{
+#resetBtn:hover{
     background-color: #776c594d;
 }
-#x:active,#o:active,#resetBtn:active,select:active{
+#resetBtn:active{
     background-color: #9487704d;
 }
 .active{
